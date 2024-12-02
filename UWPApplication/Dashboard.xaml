@@ -32,7 +32,7 @@
                 <Grid Background="#F4F4F4">
                     <!-- En-tête de la page -->
                     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="80" Background="#333333">
-                        <TextBlock Text="Dashboard" FontSize="30" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" Margin="20"/>
+                        <TextBlock Text="TABLEAU DE BORD" FontSize="30" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" Margin="20"/>
                     </Grid>
 
                     <!-- Contenu principal -->
