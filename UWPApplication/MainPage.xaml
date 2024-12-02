@@ -35,7 +35,7 @@
 
             <!-- Bouton "Commencer" avec animation de survol et effet de clic -->
             <Button x:Name="StartButton"
-        Content="Commencer" 
+        Content="Entrer" 
         HorizontalAlignment="Center"
         VerticalAlignment="Center"
         Margin="20,40,20,0"
