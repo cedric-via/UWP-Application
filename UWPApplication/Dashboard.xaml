@@ -8,42 +8,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    
+
     <Grid>
-        <!-- SplitView: Layout avec une barre latérale -->
-        <SplitView x:Name="MainSplitView" DisplayMode="CompactInline" IsPaneOpen="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <!-- Barre latérale -->
-            <SplitView.Pane>
-                <Grid Background="#1D1D1D">
-                    <StackPanel>
-                        <!-- Logo -->
-                        <Image Source="Assets/system.png" Width="80" Height="80" HorizontalAlignment="Center" Margin="20"/>
-
-                        <!-- Boutons de navigation -->
-                        <Button Content="Dashboard" Background="Transparent" Foreground="White" FontSize="18" Margin="10, 5" Click="OnDashboardButtonClick" Style="{StaticResource RoundedButtonStyle}"/>
-                        <Button Content="Cloud" Background="Transparent" Foreground="White" FontSize="18" Margin="10, 5" Click="OnCloudButtonClick" Style="{StaticResource RoundedButtonStyle}"/>
-                        <Button Content="Paramètres" Background="Transparent" Foreground="White" FontSize="18" Margin="10, 5" Click="OnSettingsButtonClick" Style="{StaticResource RoundedButtonStyle}"/>
-                        <Button Content="Déconnexion" Background="Transparent" Foreground="White" FontSize="18" Margin="10, 5" Click="OnLogoutButtonClick" Style="{StaticResource RoundedButtonStyle}"/>
-                    </StackPanel>
-                </Grid>
-            </SplitView.Pane>
-
-            <!-- Contenu principal -->
-            <SplitView.Content>
-                <Grid Background="#F4F4F4">
-                    <!-- En-tête de la page -->
-                    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="80" Background="#333333">
-                        <TextBlock Text="TABLEAU DE BORD" FontSize="28" FontWeight="Bold" Foreground="#FF488CCB" VerticalAlignment="Center" Margin="20"/>
-                    </Grid>
-
-                    <!-- Contenu principal -->
-                    <Grid Margin="20, 100, 20, 20">
-                        <StackPanel>
-                            
-                        </StackPanel>
-                    </Grid>
-                </Grid>
-            </SplitView.Content>
-        </SplitView>
     </Grid>
 </Page>

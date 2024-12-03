@@ -14,32 +14,5 @@ namespace UWPApplication
         {
             this.InitializeComponent();
         }
-        // Gestion du clic sur le bouton "Dashboard"
-        private void OnDashboardButtonClick(object sender, RoutedEventArgs e)
-        {
-            // Naviguer vers la page de tableau de bord
-            Frame.Navigate(typeof(Dashboard));
-        }
-
-        // Gestion du clic sur le bouton "Cloud"
-        private void OnCloudButtonClick(object sender, RoutedEventArgs e)
-        {
-            // Naviguer vers la page des Cloud
-            Frame.Navigate(typeof(CloudPage));
-        }
-
-        // Gestion du clic sur le bouton "Paramètres"
-        private void OnSettingsButtonClick(object sender, RoutedEventArgs e)
-        {
-            // Naviguer vers la page des paramètres
-            Frame.Navigate(typeof(Dashboard));
-        }
-
-        // Gestion du clic sur le bouton "Déconnexion"
-        private void OnLogoutButtonClick(object sender, RoutedEventArgs e)
-        {
-            // Effectuer la déconnexion et revenir à la page d'accueil
-            Frame.Navigate(typeof(MainPage));
-        }
     }
 }
