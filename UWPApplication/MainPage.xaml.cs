@@ -17,86 +17,28 @@ namespace UWPApplication
         public MainPage()
         {
             this.InitializeComponent();
-            StartPageAnimations();
+            StartProgressBar();
         }
 
-        // Fonction pour démarrer les animations sur la page de démarrage
-        private async void StartPageAnimations()
+        // Lancer la progression et rediriger après
+        private async void StartProgressBar()
         {
-            // Animation du logo (fade-in)
-            LogoImage.Opacity = 0;
-            await LogoImage.FadeInAsync(1000);  // Fade-in du logo en 1 seconde
+            // Initialisation du pourcentage
+            double value = 0;
+            ProgressBar.Value = value;
+            PercentageText.Text = $"{value}%";
 
-            // Animation du texte de bienvenue (fade-in)
-            WelcomeText.Opacity = 0;
-            await WelcomeText.FadeInAsync(500);  // Fade-in du texte en 1.5 secondes
-        }
-
-        // Action de clic sur le bouton "Commencer"
-        private void OnStartButtonClick(object sender, RoutedEventArgs e)
-        {
-            // Navigation vers la page principale (Dashboard)
-            this.Frame.Navigate(typeof(Dashboard));  
-        }
-
-        // Action quand la souris entre dans le bouton
-        private void StartButton_PointerEntered(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
-        {
-            // Animation de changement de couleur au survol
-            var animation = new DoubleAnimation
+            // Animation de la barre de progression sur 5 secondes
+            while (value < 100)
             {
-                From = 1.0,
-                To = 0.5,
-                Duration = new Duration(TimeSpan.FromMilliseconds(200))
-            };
+                value += 1;
+                ProgressBar.Value = value;
+                PercentageText.Text = $"{value}%";  // Mise à jour du texte du pourcentage
+                await System.Threading.Tasks.Task.Delay(20);  // Délai de 50ms pour l'animation
+            }
 
-            Storyboard.SetTarget(animation, StartButton);
-            Storyboard.SetTargetProperty(animation, "Opacity");
-
-            var storyboard = new Storyboard();
-            storyboard.Children.Add(animation);
-            storyboard.Begin();
-        }
-
-        // Action quand la souris quitte le bouton
-        private void StartButton_PointerExited(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
-        {
-            // Animation pour revenir à la transparence initiale
-            var animation = new DoubleAnimation
-            {
-                From = 0.5,
-                To = 1.0,
-                Duration = new Duration(TimeSpan.FromMilliseconds(200))
-            };
-
-            Storyboard.SetTarget(animation, StartButton);
-            Storyboard.SetTargetProperty(animation, "Opacity");
-
-            var storyboard = new Storyboard();
-            storyboard.Children.Add(animation);
-            storyboard.Begin();
-        }
-    }
-
-    // Extension pour l'animation de fondu
-    public static class UIExtensions
-    {
-        public static async Task FadeInAsync(this UIElement element, double duration)
-        {
-            var fadeIn = new Windows.UI.Xaml.Media.Animation.DoubleAnimation
-            {
-                From = 0,
-                To = 1,
-                Duration = new Windows.UI.Xaml.Duration(TimeSpan.FromMilliseconds(duration))
-            };
-
-            var storyboard = new Windows.UI.Xaml.Media.Animation.Storyboard();
-            storyboard.Children.Add(fadeIn);
-            Windows.UI.Xaml.Media.Animation.Storyboard.SetTarget(fadeIn, element);
-            Windows.UI.Xaml.Media.Animation.Storyboard.SetTargetProperty(fadeIn, "Opacity");
-
-            storyboard.Begin();
-            await Task.Delay((int)duration);
+            // Après la fin de la progression, rediriger vers la page Dashboard
+            Frame.Navigate(typeof(Dashboard));
         }
     }
 }

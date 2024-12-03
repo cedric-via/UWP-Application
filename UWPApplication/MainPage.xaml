@@ -8,9 +8,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <!-- Grid principal pour centrer le contenu -->
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-
         <!-- Conteneur StackPanel pour centrer les éléments -->
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Padding="40">
 
@@ -25,30 +23,30 @@
 
             <!-- Texte de bienvenue avec animation de fade-in -->
             <TextBlock x:Name="WelcomeText"
-                       Text="Bienvenue dans le système intégré"
-                       FontSize="30"
-                       HorizontalAlignment="Center"
-                       VerticalAlignment="Center"
-                       Margin="0,30,0,0"
-                       Foreground="#FF7361FF"
-                       Opacity="0" />
+                   Text="Bienvenue dans le système intégré"
+                   FontSize="30"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Margin="0,30,0,0"
+                   Foreground="#FF7361FF"
+                   Opacity="0" />
 
-            <!-- Bouton "Commencer" avec animation de survol et effet de clic -->
-            <Button x:Name="StartButton"
-        Content="Entrer" 
-        HorizontalAlignment="Center"
-        VerticalAlignment="Center"
-        Margin="20,40,20,0"
-        Background="Transparent"
-        BorderBrush="#FF7361FF"
-        BorderThickness="2"
-        Foreground="#FF7361FF"
-        FontSize="18"
-        Height="60" Width="200"
-        Click="OnStartButtonClick"
-        PointerEntered="StartButton_PointerEntered"
-        PointerExited="StartButton_PointerExited" FocusVisualPrimaryBrush="#FF7361FF">
-            </Button>
+            <!-- Barre de progression arrondie -->
+            <ProgressBar x:Name="ProgressBar" HorizontalAlignment="Center" VerticalAlignment="Center"
+                     Width="300" Height="30" Margin="20,40,20,0" Minimum="0" Maximum="100" Value="0"
+                     CornerRadius="15">
+                <ProgressBar.Foreground>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                        <GradientStop Color="#FF7361FF" Offset="0" />
+                        <GradientStop Color="#4B6EFF" Offset="1" />
+                    </LinearGradientBrush>
+                </ProgressBar.Foreground>
+            </ProgressBar>
+
+            <!-- Affichage du pourcentage -->
+            <TextBlock x:Name="PercentageText" Text="0%" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,0" Foreground="#FF7361FF"/>
+
         </StackPanel>
     </Grid>
+
 </Page>
