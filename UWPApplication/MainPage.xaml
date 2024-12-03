@@ -23,8 +23,8 @@
 
             <!-- Barre de progression arrondie -->
             <ProgressBar x:Name="ProgressBar" HorizontalAlignment="Center" VerticalAlignment="Center"
-                     Width="300" Height="30" Margin="20,40,20,0" Minimum="0" Maximum="100" Value="0"
-                     CornerRadius="15">
+                     Width="300" Height="20" Margin="20,40,20,0" Minimum="0" Maximum="100" Value="0"
+                     CornerRadius="8">
                 <ProgressBar.Foreground>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
                         <GradientStop Color="#FF7361FF" Offset="0" />
@@ -34,10 +34,7 @@
             </ProgressBar>
 
             <!-- Affichage du pourcentage -->
-            <TextBlock
- x:Name="PercentageText" Text="0%" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,0" Foreground="#FF7361FF"/>
-
+            <TextBlock x:Name="PercentageText" Text="0%" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,0" Foreground="#FF7361FF"/>
         </StackPanel>
     </Grid>
-
 </Page>

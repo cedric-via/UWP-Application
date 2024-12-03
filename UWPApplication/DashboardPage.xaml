@@ -1,0 +1,39 @@
+﻿<Page
+    x:Class="UWPApplication.DashboardPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UWPApplication"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <!-- Icône de l'application (centrée) -->
+        <Image x:Name="AppIcon" Source="Assets/integrated-system-logo.png" Width="100" Height="100"
+               HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,30">
+            <Image.Transitions>
+                <TransitionCollection>
+                    <EntranceThemeTransition/>
+                </TransitionCollection>
+            </Image.Transitions>
+        </Image>
+
+        <!-- Message de bienvenue animé -->
+        <TextBlock x:Name="WelcomeMessage" Text="Bienvenue sur notre application!" FontSize="24" FontWeight="Bold"
+                   HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,150,0,0" Foreground="#4B6EFF">
+            <TextBlock.Transitions>
+                <TransitionCollection>
+                    <EntranceThemeTransition/>
+                </TransitionCollection>
+            </TextBlock.Transitions>
+        </TextBlock>
+
+        <!-- Contenu dynamique qui apparaîtra après un délai -->
+        <StackPanel x:Name="DynamicContent" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,250,0,0" Visibility="Collapsed" >
+            <!-- Exemple de contenu dynamique (boutons de navigation) -->
+            <Button Content="Explorer" Width="200" Height="50" Margin="10" HorizontalAlignment="Center" Click="Button_Click"/>
+            <Button Content="Paramètres" Width="200" Height="50" Margin="10" HorizontalAlignment="Center" Click="Button_Click_1"/>
+        </StackPanel>
+    </Grid>
+</Page>

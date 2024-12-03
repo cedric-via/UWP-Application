@@ -14,31 +14,44 @@ namespace UWPApplication
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private DispatcherTimer _timer;
+        private int _progressValue = 0;
+
         public MainPage()
         {
             this.InitializeComponent();
-            StartProgressBar();
+
+            // Initialisation du timer
+            _timer = new DispatcherTimer();
+            _timer.Interval = TimeSpan.FromMilliseconds(25);  // Mise à jour toutes les 100 ms
+            _timer.Tick += Timer_Tick;
+
+            // Démarrer le timer pour animer la barre de progression
+            _timer.Start();
         }
 
-        // Lancer la progression et rediriger après
-        private async void StartProgressBar()
+        // Cette fonction est appelée à chaque "Tick" du timer
+        private void Timer_Tick(object sender, object e)
         {
-            // Initialisation du pourcentage
-            double value = 0;
-            ProgressBar.Value = value;
-            PercentageText.Text = $"{value}%";
+            _progressValue += 2;  // Augmenter la valeur de la barre de progression
 
-            // Animation de la barre de progression sur 5 secondes
-            while (value < 100)
+            // Mettre à jour la barre de progression et le texte
+            ProgressBar.Value = _progressValue;
+            PercentageText.Text = $"Chargement . . . {_progressValue}%";
+
+            // Si la barre atteint 100%, arrêter le timer et naviguer vers le dashboard
+            if (_progressValue >= 100)
             {
-                value += 1;
-                ProgressBar.Value = value;
-                PercentageText.Text = $"Chargement ... {value}%";  // Mise à jour du texte du pourcentage
-                await System.Threading.Tasks.Task.Delay(30);  // Délai de 50ms pour l'animation
+                _timer.Stop();
+                NavigateToDashboard();
             }
+        }
 
-            // Après la fin de la progression, rediriger vers la page Dashboard
-            Frame.Navigate(typeof(Dashboard));
+        // Fonction pour rediriger vers le tableau de bord
+        private void NavigateToDashboard()
+        {
+            // Vous pouvez remplacer cette ligne par votre propre logique de navigation
+            this.Frame.Navigate(typeof(DashboardPage));
         }
     }
 }
