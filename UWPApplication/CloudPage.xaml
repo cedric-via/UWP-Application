@@ -11,6 +11,7 @@
     <Grid>
         <!-- SplitView: Layout avec une barre latérale -->
         <SplitView x:Name="MainSplitView" DisplayMode="CompactInline" IsPaneOpen="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
             <!-- Barre latérale -->
             <SplitView.Pane>
                 <Grid Background="#1D1D1D">
@@ -33,13 +34,6 @@
                     <!-- En-tête de la page -->
                     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="80" Background="#333333">
                         <TextBlock Text="CLOUD" FontSize="28" FontWeight="Bold" Foreground="#FF488CCB" VerticalAlignment="Center" Margin="20"/>
-                    </Grid>
-
-                    <!-- Contenu principal -->
-                    <Grid Margin="20, 100, 20, 20">
-                        <StackPanel>
-
-                        </StackPanel>
                     </Grid>
                 </Grid>
             </SplitView.Content>

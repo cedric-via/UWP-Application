@@ -33,8 +33,8 @@ namespace UWPApplication
             {
                 value += 1;
                 ProgressBar.Value = value;
-                PercentageText.Text = $"{value}%";  // Mise à jour du texte du pourcentage
-                await System.Threading.Tasks.Task.Delay(20);  // Délai de 50ms pour l'animation
+                PercentageText.Text = $"Chargement ... {value}%";  // Mise à jour du texte du pourcentage
+                await System.Threading.Tasks.Task.Delay(30);  // Délai de 50ms pour l'animation
             }
 
             // Après la fin de la progression, rediriger vers la page Dashboard

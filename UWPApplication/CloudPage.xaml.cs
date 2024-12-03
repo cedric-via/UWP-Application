@@ -6,6 +6,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
+using System.Windows;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
@@ -20,8 +21,13 @@ namespace UWPApplication
     /// <summary>
     /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
     /// </summary>
+
+
     public sealed partial class CloudPage : Page
     {
+        private DispatcherTimer progressTimer;
+        private double progressValue = 75; // Valeur initiale de la barre de progression
+
         public CloudPage()
         {
             this.InitializeComponent();
